@@ -145,7 +145,7 @@ class Scanner:
 
         resultados = []
 
-        for arfor arquivo in Path(pasta).rglob("*.docx"):
+      for arquivo in Path(pasta).rglob("*.docx"):
 
     # Ignora arquivos temporários do Word
     if arquivo.name.startswith("~$"):
