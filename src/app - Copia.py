@@ -135,17 +135,17 @@ entry_tempo.grid(row=5, column=0, padx=(0, 6), pady=2, sticky=tk.W)
 btn_buscar = ttk.Button(frame_inputs, text="Iniciar Busca", command=buscar_norma)
 btn_buscar.grid(row=5, column=1, pady=2)
 
-# Painel de Exibição dos Resultados
+#Resultados
 frame_res = ttk.Frame(root, padding=12)
 frame_res.pack(fill=tk.BOTH, expand=True)
 
 ttk.Label(frame_res, text="Resultados da Pesquisa:").pack(anchor=tk.W, pady=(0, 4))
 
-# Configuramos a fonte padrão como tamanho 12 normal
+#Fonte
 txt_resultado = tk.Text(frame_res, wrap=tk.WORD, font=("Consolas", 12))
 txt_resultado.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-# CRIAMOS A TAG DE NEGRITO AQUI:
+#CRIAMOS A TAG DE NEGRITO AQUI:
 txt_resultado.tag_configure("negrito", font=("Consolas", 12, "bold"))
 
 scrollbar = ttk.Scrollbar(frame_res, command=txt_resultado.yview)
