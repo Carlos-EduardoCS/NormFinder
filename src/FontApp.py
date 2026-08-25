@@ -20,7 +20,7 @@ def buscar_norma():
         return
 
     if not norma:
-        messagebox.showwarning("Aviso", "Por favor, informe a norma a ser buscada.")
+        messagebox.showwarning("Aviso", "Por favor, informe a norma  a ser buscada.")
         return
 
     try:
@@ -60,7 +60,7 @@ def buscar_norma():
                     try:
                         doc = Document(caminho_completo)
 
-                        # 1. Varre parágrafos
+                        # Varre parágrafos
                         for num_p, p in enumerate(doc.paragraphs, 1):
                             if norma.lower() in p.text.lower():
                                 # Imprime a parte normal
@@ -97,7 +97,7 @@ def buscar_norma():
                         txt_resultado.insert(tk.END, f"⚠️ Erro ao ler {arquivo}: {e}\n")
 
         if estourou_tempo:
-            txt_resultado.insert(tk.END, f"\n⏱ BUSCA CANCELADA: O tempo limite de {tempo_limite} segundos foi atingido sem sucesso.")
+            txt_resultado.insert(tk.END, f"\n BUSCA CANCELADA: O tempo limite de {tempo_limite} segundos foi atingido sem sucesso.")
         elif not encontrado:
             txt_resultado.insert(tk.END, "\nNenhuma ocorrência foi localizada nos documentos da pasta e subpastas.")
         else:
@@ -110,7 +110,7 @@ def buscar_norma():
 
 # Configuração da Janela Principal
 root = tk.Tk()
-root.title("Buscador de Normas em Documentos Word")
+root.title("NormFinder")
 root.geometry("800x650")
 
 # Painel de Entradas
@@ -144,8 +144,7 @@ ttk.Label(frame_res, text="Resultados da Pesquisa:").pack(anchor=tk.W, pady=(0, 
 #Fonte
 txt_resultado = tk.Text(frame_res, wrap=tk.WORD, font=("Consolas", 12))
 txt_resultado.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
-#CRIAMOS A TAG DE NEGRITO AQUI:
+#Negrito
 txt_resultado.tag_configure("negrito", font=("Consolas", 12, "bold"))
 
 scrollbar = ttk.Scrollbar(frame_res, command=txt_resultado.yview)
