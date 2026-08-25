@@ -64,7 +64,7 @@ def buscar_norma():
                         for num_p, p in enumerate(doc.paragraphs, 1):
                             if norma.lower() in p.text.lower():
                                 # Imprime a parte normal
-                                txt_resultado.insert(tk.END, f"📂 Caminho: {raiz}\n📄 Arquivo: {arquivo}\n📍 Local: Parágrafo {num_p}\n💬 Trecho: \"")
+                                txt_resultado.insert(tk.END, f" Caminho: {raiz}\n Arquivo: {arquivo}\n Local: Parágrafo {num_p}\n Trecho: \"")
                                 # Imprime o trecho aplicando a tag de negrito
                                 txt_resultado.insert(tk.END, f"{p.text.strip()}", "negrito")
                                 # Finaliza a formatação e fecha aspas
@@ -83,7 +83,7 @@ def buscar_norma():
                                     for celula in linha.cells:
                                         if norma.lower() in celula.text.lower():
                                             # Imprime a parte normal
-                                            txt_resultado.insert(tk.END, f"📂 Caminho: {raiz}\n📄 Arquivo: {arquivo}\n📍 Local: Tabela {num_t}, Linha {num_l}\n💬 Trecho: \"")
+                                            txt_resultado.insert(tk.END, f" Caminho: {raiz}\n Arquivo: {arquivo}\n Local: Tabela {num_t}, Linha {num_l}\n💬 Trecho: \"")
                                             # Imprime o trecho aplicando a tag de negrito
                                             txt_resultado.insert(tk.END, f"{celula.text.strip()}", "negrito")
                                             # Finaliza a formatação e fecha aspas
@@ -97,11 +97,11 @@ def buscar_norma():
                         txt_resultado.insert(tk.END, f"⚠️ Erro ao ler {arquivo}: {e}\n")
 
         if estourou_tempo:
-            txt_resultado.insert(tk.END, f"\n⏱️ BUSCA CANCELADA: O tempo limite de {tempo_limite} segundos foi atingido sem sucesso.")
+            txt_resultado.insert(tk.END, f"\n⏱ BUSCA CANCELADA: O tempo limite de {tempo_limite} segundos foi atingido sem sucesso.")
         elif not encontrado:
             txt_resultado.insert(tk.END, "\nNenhuma ocorrência foi localizada nos documentos da pasta e subpastas.")
         else:
-            txt_resultado.insert(tk.END, "\n✅ Busca concluída! O documento acima contém a norma procurada.")
+            txt_resultado.insert(tk.END, "\n Busca concluída! O documento acima contém a norma procurada.")
 
     except Exception as e:
         messagebox.showerror("Erro", f"Falha ao acessar a pasta selecionada: {e}")
